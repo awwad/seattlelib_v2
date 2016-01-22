@@ -11,18 +11,18 @@ matrix:
       install:                  # tool installation 
         - sudo apt-get update
         - sudo apt-get install net-tools
-    - language: python
-      python: '2.6'
-      os: linux
-      install:
-        - sudo apt-get update
-        - sudo apt-get install net-tools
-    - language: python
-      python: '2.5'
-      os: linux
-      install:
-        - sudo apt-get update
-        - sudo apt-get install net-tools
+#    - language: python
+#      python: '2.6'
+#      os: linux
+#      install:
+#        - sudo apt-get update
+#        - sudo apt-get install net-tools
+#    - language: python
+#      python: '2.5'
+#      os: linux
+#      install:
+#        - sudo apt-get update
+#        - sudo apt-get install net-tools
 
 
     # OS X Instances follow
@@ -34,25 +34,28 @@ matrix:
       install:
           brew update;
           brew install python;
-    # OS X python 2.5.6
-    - language: objective-c
-      os: osx
-      install:
-          brew update;
-          brew install pyenv;
-          pyenv install 2.5.6;
-          pyenv global 2.5.6;
-    # OS X python 2.6.9
-    - language: objective-c
-      os: osx
-      install:
-          brew update;
-          brew install python;
-          pyenv install 2.5.6;
-          pyenv global 2.5.6;
+#    # OS X python 2.5.6
+#    - language: objective-c
+#      os: osx
+#      install:
+#          brew update;
+#          brew install pyenv;
+#          pyenv install 2.5.6;
+#          pyenv global 2.5.6;
+#    # OS X python 2.6.9
+#    - language: objective-c
+#      os: osx
+#      install:
+#          brew update;
+#          brew install python;
+#          pyenv install 2.5.6;
+#          pyenv global 2.5.6;
 
 script:
   - python --version
+  - echo "Testing internet connectivity."
+  - ping 8.8.8.8
+  - curl www.google.com | grep Wilbur | wc -l
   - cd ./scripts
   - python initialize.py
   - python build.py -t
