@@ -20,6 +20,8 @@ platform:
 test_script:
   - "python --version"
   - "cd scripts"
+  - "ping 8.8.8.8"
+  - "curl www.google.com"
   - "python initialize.py"
   - "python build.py -t"
   - "cd ../RUNNABLE"
